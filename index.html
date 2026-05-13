@@ -123,28 +123,30 @@
             text-align: justify;
         }
 
-        /* Carrossel Ajustado e Protegido */
-        .carousel-wrapper {
+        /* ── VITRINE EM CARROSSEL NATIVO (BOMB-PROOF) ── */
+        .carousel-container {
             position: relative;
             width: 100%;
-            overflow: hidden;
-            padding: 10px 0;
-        }
-
-        .carousel-track-container {
-            width: 100%;
-            overflow: hidden;
         }
 
         .carousel-track {
             display: flex;
             gap: 20px;
-            transition: transform 0.3s ease-in-out;
-            width: max-content;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 10px 5px;
+            /* Esconde a barra de rolagem padrão para ficar limpo */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         .portfolio-item {
-            width: 280px;
+            flex: 0 0 280px; /* Garante tamanho fixo exato, sem amassar ou empilhar */
+            scroll-snap-align: start;
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
@@ -166,28 +168,30 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 10px;
         }
 
         .item-info h4 {
             font-size: 1rem;
-            margin-bottom: 8px;
             color: var(--secondary-color);
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         .item-link {
             display: inline-block;
-            margin-top: 10px;
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
         }
 
-        .carousel-btn {
+        /* Setas de Navegação Desktops */
+        .carousel-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border: 1px solid #ddd;
             width: 40px;
             height: 40px;
@@ -198,20 +202,20 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--secondary-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: all 0.2s;
         }
 
-        .carousel-btn:hover {
+        .carousel-nav-btn:hover {
             background: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
         }
 
-        .btn-prev { left: 5px; }
-        .btn-next { right: 5px; }
+        .nav-left { left: -15px; }
+        .nav-right { right: -15px; }
 
         /* Acordeão dos Cases */
         .accordion-item {
@@ -259,7 +263,7 @@
 
         .accordion-item.active .accordion-content {
             padding: 20px;
-            max-height: 2000px; /* Garante que abre tudo */
+            max-height: 2000px;
         }
 
         .case-images {
@@ -346,8 +350,9 @@
             header { flex-direction: column; align-items: flex-start; gap: 15px; }
             .header-side-imgs { width: 100%; justify-content: flex-start; }
             .case-images img { width: calc(50% - 5px); }
-            .portfolio-item { width: 240px; }
+            .portfolio-item { flex: 0 0 240px; }
             .portfolio-item img { height: 240px; }
+            .carousel-nav-btn { display: none; } /* No celular, usa o deslize do dedo natural */
         }
     </style>
 </head>
@@ -384,102 +389,102 @@
 
         <section>
             <h3>Vitrine de Conteúdo</h3>
-            <div class="carousel-wrapper">
-                <button class="carousel-btn btn-prev" onclick="moveCarousel(-1)">&#10094;</button>
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="carouselTrack">
-                        
-                        <div class="portfolio-item">
-                            <img src="4.jpeg" alt="Post LinkedIn">
-                            <div class="item-info">
-                                <h4>Consistência e tom de voz: o caso Nike</h4>
-                                <a href="https://www.linkedin.com/posts/thainazocolan_nike-branding-share-7452804883642146816-FH0D" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
+            <div class="carousel-container">
+                <button class="carousel-nav-btn nav-left" onclick="scrollTrack(-1)">&#10094;</button>
+                
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <div class="portfolio-item">
+                        <img src="4.jpeg" alt="Post LinkedIn">
+                        <div class="item-info">
+                            <h4>Consistência e tom de voz: o caso Nike</h4>
+                            <a href="https://www.linkedin.com/posts/thainazocolan_nike-branding-share-7452804883642146816-FH0D" target="_blank" class="item-link">Ver post original ↗</a>
                         </div>
-
-                        <div class="portfolio-item">
-                            <img src="5.jpeg" alt="Post LinkedIn">
-                            <div class="item-info">
-                                <h4>A Adidas como referência em Collabs</h4>
-                                <a href="https://www.linkedin.com/posts/thainazocolan_branding-fashionbusiness-adidas-ugcPost-7432257723406323712-IqfC" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="6.jpeg" alt="Post LinkedIn">
-                            <div class="item-info">
-                                <h4>Propósito e Autoconhecimento de Marca</h4>
-                                <a href="https://www.linkedin.com/posts/thainazocolan_quanto-tempo-voc%C3%AA-dedica-para-conhecer-profundamente-share-7363940980921618434-NKhQ" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="7.jpeg" alt="Post Instagram">
-                            <div class="item-info">
-                                <h4>Marketing & Liderança Executiva</h4>
-                                <a href="https://www.instagram.com/p/DQ7osBLD6Ez/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="8.jpeg" alt="Post Instagram">
-                            <div class="item-info">
-                                <h4>Negócios e Estratégia na Itália</h4>
-                                <a href="https://www.instagram.com/p/DV9oWUIjSYa/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="9.jpeg" alt="Post Instagram">
-                            <div class="item-info">
-                                <h4>Processo Seletivo de Bolsas Globais</h4>
-                                <a href="https://www.instagram.com/p/DUEN4K7jzZZ/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="10.jpeg" alt="Post Instagram">
-                            <div class="item-info">
-                                <h4>Internacionalização de Carreiras</h4>
-                                <a href="https://www.instagram.com/p/DRPiAfVjSn-/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="11.jpeg" alt="Reels Instagram">
-                            <div class="item-info">
-                                <h4>Bastidores e Roteirização (Reels)</h4>
-                                <a href="https://www.instagram.com/reel/DTJBHFdD15_/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="12.jpeg" alt="Reels Instagram">
-                            <div class="item-info">
-                                <h4>Storytelling Aplicado a Infoprodutos</h4>
-                                <a href="https://www.instagram.com/reel/DRUlTKnDKdW/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="13.jpeg" alt="Reels Instagram">
-                            <div class="item-info">
-                                <h4>Estratégia de Engajamento e Retenção</h4>
-                                <a href="https://www.instagram.com/reel/DEUqlDuJCOw/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="14.jpeg" alt="Reels Instagram">
-                            <div class="item-info">
-                                <h4>Vídeos Curtos para Conversão Fundo de Funil</h4>
-                                <a href="https://www.instagram.com/reel/C_BAJkRsFew/" target="_blank" class="item-link">Ver post original ↗</a>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="portfolio-item">
+                        <img src="5.jpeg" alt="Post LinkedIn">
+                        <div class="item-info">
+                            <h4>A Adidas como referência em Collabs</h4>
+                            <a href="https://www.linkedin.com/posts/thainazocolan_branding-fashionbusiness-adidas-ugcPost-7432257723406323712-IqfC" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="6.jpeg" alt="Post LinkedIn">
+                        <div class="item-info">
+                            <h4>Propósito e Autoconhecimento de Marca</h4>
+                            <a href="https://www.linkedin.com/posts/thainazocolan_quanto-tempo-voc%C3%AA-dedica-para-conhecer-profundamente-share-7363940980921618434-NKhQ" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="7.jpeg" alt="Post Instagram">
+                        <div class="item-info">
+                            <h4>Marketing & Liderança Executiva</h4>
+                            <a href="https://www.instagram.com/p/DQ7osBLD6Ez/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="8.jpeg" alt="Post Instagram">
+                        <div class="item-info">
+                            <h4>Negócios e Estratégia na Itália</h4>
+                            <a href="https://www.instagram.com/p/DV9oWUIjSYa/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="9.jpeg" alt="Post Instagram">
+                        <div class="item-info">
+                            <h4>Processo Seletivo de Bolsas Globais</h4>
+                            <a href="https://www.instagram.com/p/DUEN4K7jzZZ/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="10.jpeg" alt="Post Instagram">
+                        <div class="item-info">
+                            <h4>Internacionalização de Carreiras</h4>
+                            <a href="https://www.instagram.com/p/DRPiAfVjSn-/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="11.jpeg" alt="Reels Instagram">
+                        <div class="item-info">
+                            <h4>Bastidores e Roteirização (Reels)</h4>
+                            <a href="https://www.instagram.com/reel/DTJBHFdD15_/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="12.jpeg" alt="Reels Instagram">
+                        <div class="item-info">
+                            <h4>Storytelling Aplicado a Infoprodutos</h4>
+                            <a href="https://www.instagram.com/reel/DRUlTKnDKdW/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="13.jpeg" alt="Reels Instagram">
+                        <div class="item-info">
+                            <h4>Estratégia de Engajamento e Retenção</h4>
+                            <a href="https://www.instagram.com/reel/DEUqlDuJCOw/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="14.jpeg" alt="Reels Instagram">
+                        <div class="item-info">
+                            <h4>Vídeos Curtos para Conversão Fundo de Funil</h4>
+                            <a href="https://www.instagram.com/reel/C_BAJkRsFew/" target="_blank" class="item-link">Ver post original ↗</a>
+                        </div>
+                    </div>
+
                 </div>
-                <button class="carousel-btn btn-next" onclick="moveCarousel(1)">&#10095;</button>
+
+                <button class="carousel-nav-btn nav-right" onclick="scrollTrack(1)">&#10095;</button>
             </div>
         </section>
 
@@ -499,7 +504,7 @@
                     </div>
                     <p><strong>Contexto e Desafio:</strong> A produção pulverizada entre múltiplos parceiros externos e agências gerava quebras constantes na identidade verbal da marca.</p>
                     <p><strong>Abordagem:</strong> Desenvolvimento de um manual de governança editorial robusto mapeando arquétipos, regras inegociáveis de escrita e faixas de modulação por canal (frio vs. quente).</p>
-                    <p><strong>Uso de IA:</strong> Alimentação de um GPT customizado com as diretrizes do manual para que a equipe e fornecedores pudessem validar e ajustar copys instantaneamente.</p>
+                    <p><strong>Uso de IA:</strong> Alimentação de um GPT customizado com as diretrizes do manual para que a equipe e fornecedores pudenham validar e ajustar copys instantaneamente.</p>
                     <div class="case-images">
                         <img src="15.jpeg" alt="Manual Página 1">
                         <img src="16.jpeg" alt="Manual Página 2">
@@ -600,27 +605,15 @@
     </div>
 
     <script>
-        // Lógica do Carrossel corrigida e à prova de falhas
-        let currentPosition = 0;
-        
-        function moveCarousel(direction) {
+        // Rolagem de carrossel baseada em scroll puro (indestrutível)
+        function scrollTrack(direction) {
             const track = document.getElementById('carouselTrack');
-            const items = document.querySelectorAll('.portfolio-item');
-            if (items.length === 0) return;
-            
-            const itemWidth = items[0].offsetWidth + 20; // Largura + Gap
-            const containerWidth = document.querySelector('.carousel-track-container').offsetWidth;
-            const maxVisibleItems = Math.floor(containerWidth / itemWidth) || 1;
-            const maxScroll = items.length - maxVisibleItems;
-            
-            currentPosition += direction;
-            
-            // Trava as pontas
-            if (currentPosition < 0) currentPosition = 0;
-            if (currentPosition > maxScroll) currentPosition = maxScroll;
-            
-            const amountToMove = -currentPosition * itemWidth;
-            track.style.transform = `translateX(${amountToMove}px)`;
+            // Move o equivalente a um card (280px) mais o gap (20px)
+            const scrollAmount = 300 * direction; 
+            track.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
         }
 
         // Lógica do Acordeão
@@ -628,12 +621,6 @@
             const item = header.parentElement;
             item.classList.toggle('active');
         }
-        
-        // Ajusta o carrossel se a tela mudar de tamanho
-        window.addEventListener('resize', () => {
-            currentPosition = 0;
-            document.getElementById('carouselTrack').style.transform = 'translateX(0px)';
-        });
     </script>
 </body>
 </html>
