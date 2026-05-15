@@ -44,6 +44,13 @@
   .ibs-grid { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; }
   .ibs-thumb-card { flex: 0 0 150px; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
   .ibs-thumb-card img { width: 100%; height: 100%; object-fit: cover; }
+  .pf-case { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
+  .case-title { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; }
+  .badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; }
+  .b-brand { background: #faf5ff; color: #6b21a8; }
+  .case-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-top: 1rem; }
+  .case-img-box { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; }
+  .case-img-box img { width: 100%; height: 100%; object-fit: cover; }
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
   .skill-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: white; box-shadow: var(--shadow-sm); }
   .skill-lbl { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pink); margin-bottom: 0.6rem; }
@@ -51,7 +58,8 @@
   .contact-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn { font-size: 13px; font-weight: 600; padding: 12px 22px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.08); background: white; text-decoration: none; color: var(--black); transition: var(--fx); }
   .btn.primary { background: var(--pink); color: white; border-color: var(--pink); }
-  @media (max-width: 650px) { .xp-item { grid-template-columns: 1fr; } }
+  .detail-panel { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  @media (max-width: 650px) { .xp-item { grid-template-columns: 1fr; } .pf { padding: 3rem 1.25rem; } }
 </style>
 </head>
 <body>
@@ -67,6 +75,9 @@
       <a href="https://www.linkedin.com/in/thainazocolan" target="_blank">LinkedIn</a>
     </div>
     <p class="pf-tagline">7+ anos estruturando estratégias de conteúdo para marcas: do diagnóstico ao sistema editorial completo.</p>
+    <div class="pf-tags">
+      <span class="pf-tag">Estratégia</span><span class="pf-tag">Branding</span><span class="pf-tag">IA</span><span class="pf-tag">Fashion Business</span><span class="pf-tag">Copywriting</span>
+    </div>
   </header>
 
   <section class="pf-section">
@@ -83,11 +94,12 @@
           <p class="xp-role">Estratégia de Conteúdo e Social Media</p>
           <p class="xp-co">IBS Americas</p>
           <ul class="xp-bullets">
-            <li>Gestão estratégica e de conteúdo de 3 contas institucionais.</li>
-            <li>Copywriting para campanhas e criação do manual de voz.</li>
+            <li>Gestão estratégica e de conteúdo de 3 contas institucionais do Instagram.</li>
+            <li>Gerenciamento de marca pessoal e conteúdo para o Diretor da empresa.</li>
+            <li>Criação do manual de voz e identidade verbal.</li>
           </ul>
           <div class="ibs-showcase">
-            <p class="ibs-meta-text"><strong>Vitrine de Conteúdo:</strong> planejamento e roteirização.</p>
+            <p class="ibs-meta-text"><strong>Vitrine de Conteúdo:</strong> planejamento estratégico e roteirização.</p>
             <div class="ibs-grid">
               <a href="https://www.instagram.com/p/DQ7osBLD6Ez/" target="_blank" class="ibs-thumb-card"><img src="4.jpeg"></a>
               <a href="https://www.instagram.com/p/DV9oWUIJSYa/" target="_blank" class="ibs-thumb-card"><img src="5.jpeg"></a>
@@ -101,15 +113,35 @@
         <div>
           <p class="xp-role">Conteudista Freelancer</p>
           <p class="xp-co">SEBRAE</p>
-          <ul class="xp-bullets"><li>E-book "Networking" e conteúdos educativos.</li></ul>
+          <ul class="xp-bullets"><li>E-book "Networking – Maximizando resultados pós-feira".</li></ul>
         </div>
       </div>
       <div class="xp-item">
         <div class="xp-year">2019 — 2021</div>
         <div>
           <p class="xp-role">Assistente de Comunicação</p>
-          <p class="xp-co">IOS</p>
-          <ul class="xp-bullets"><li>Gestão de redes sociais e relatórios GRI.</li></ul>
+          <p class="xp-co">Instituto da Oportunidade Social (IOS)</p>
+          <ul class="xp-bullets"><li>Crescimento orgânico de 100 a 10 mil seguidores.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-section">
+    <p class="pf-label">Cases de Trabalho</p>
+    <div class="pf-case">
+      <div style="padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="case-title">Manual de Identidade Verbal</span>
+          <span class="badge b-brand">Branding Verbal</span>
+        </div>
+        <p style="font-size: 13.5px; margin-top: 10px; color: var(--dark);">Guia de governança editorial e GPT personalizado para consistência de voz.</p>
+        <button onclick="tog(this)" style="background: none; border: none; color: var(--pink); font-size: 11px; cursor: pointer; margin-top: 10px;">+ ver detalhes</button>
+        <div class="detail-panel">
+          <div class="case-img-grid">
+            <div class="case-img-box"><img src="15.jpeg"></div>
+            <div class="case-img-box"><img src="16.jpeg"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -118,8 +150,17 @@
   <section class="pf-section">
     <p class="pf-label">Competências</p>
     <div class="skills-grid">
-      <div class="skill-card"><p class="skill-lbl">Estratégia</p><p class="skill-items">Sistema editorial · Funil · SEO · Copy</p></div>
-      <div class="skill-card"><p class="skill-lbl">Gestão</p><p class="skill-items">Analytics · RD Station · IA Tools</p></div>
+      <div class="skill-card"><p class="skill-lbl">Estratégia</p><p class="skill-items">Sistema editorial · Funil · SEO · Copywriting</p></div>
+      <div class="skill-card"><p class="skill-lbl">Tecnologia</p><p class="skill-items">ChatGPT · Claude · Gemini · RD Station</p></div>
+      <div class="skill-card"><p class="skill-lbl">Gestão</p><p class="skill-items">Asana · Trello · Analytics · mLabs</p></div>
+    </div>
+  </section>
+
+  <section class="pf-section">
+    <p class="pf-label">Formação</p>
+    <div class="xp-list">
+      <div class="xp-item"><div class="xp-year">FAAP</div><div><p class="xp-role">Pós-graduação em Fashion Business</p></div></div>
+      <div class="xp-item"><div class="xp-year">Anhembi</div><div><p class="xp-role">Graduação em Comunicação Social - Jornalismo</p></div></div>
     </div>
   </section>
 
@@ -128,8 +169,15 @@
     <div class="contact-row">
       <a href="mailto:thainazocolan@hotmail.com" class="btn primary">E-mail</a>
       <a href="https://www.linkedin.com/in/thainazocolan" class="btn" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/5511983481654" class="btn" target="_blank">WhatsApp</a>
     </div>
   </section>
 </div>
+<script>
+  function tog(btn) {
+    const panel = btn.nextElementSibling;
+    panel.style.maxHeight = panel.style.maxHeight === "500px" ? "0px" : "500px";
+  }
+</script>
 </body>
 </html>
