@@ -9,175 +9,1304 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=block" rel="stylesheet">
 <style>
   :root {
-    --lime: #bfff0a; --pink: #ff0082; --purple: #c853ff; --gray-dark: #4a4a4a;
-    --lime-pastel: #e5ff7d; --yellow: #faef36; --lilac: #f5c7ff; --salmon: #ffc2c2;
-    --gray-light: #cecece; --offwhite: #f8fafc; --dark: #475569; --black: #0f172a;
-    --border: rgba(15, 23, 42, 0.05); --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.02);
-    --shadow-md: 0 12px 30px -10px rgba(15, 23, 42, 0.08); --fx: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --lime: #bfff0a;
+    --pink: #ff0082;
+    --purple: #c853ff;
+    --gray-dark: #4a4a4a;
+    --lime-pastel: #e5ff7d;
+    --yellow: #faef36;
+    --lilac: #f5c7ff;
+    --salmon: #ffc2c2;
+    --gray-light: #cecece;
+    --offwhite: #f8fafc;
+    --dark: #475569;
+    --black: #0f172a;
+    --border: rgba(15, 23, 42, 0.05);
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.02);
+    --shadow-md: 0 12px 30px -10px rgba(15, 23, 42, 0.08);
+    --fx: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-  body { font-family: 'Montserrat', sans-serif; background: var(--offwhite); color: var(--black); line-height: 1.8; }
-  .pf { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; }
-  .pf-header { margin-bottom: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
-  .pf-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dark); opacity: 0.6; margin-bottom: 1.25rem; }
-  .pf-name { font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-  .pf-role { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 400; color: var(--pink); margin-bottom: 1.5rem; }
-  .pf-contact-line { font-size: 13px; color: var(--dark); margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 8px 20px; }
-  .pf-contact-line a { color: var(--black); text-decoration: none; border-bottom: 1px solid rgba(15, 23, 42, 0.2); transition: var(--fx); }
+
+  * { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-synthesis: none; 
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility; 
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--offwhite);
+    color: var(--black);
+    min-height: 100vh;
+    line-height: 1.8;
+  }
+
+  .pf {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  /* ── HEADER ── */
+  .pf-header {
+    margin-bottom: 4rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pf-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dark);
+    opacity: 0.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .pf-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+  }
+
+  .pf-role {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+  }
+
+  .pf-contact-line {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    align-items: center;
+  }
+
+  .pf-contact-line a {
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.2);
+    transition: var(--fx);
+  }
+
   .pf-contact-line a:hover { color: var(--pink); border-color: var(--pink); }
-  .pf-tagline { font-size: 15px; font-weight: 300; color: var(--dark); margin-bottom: 1.75rem; }
+
+  .pf-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.8;
+    max-width: 620px;
+    margin-bottom: 1.75rem;
+  }
+
   .pf-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .pf-tag { font-size: 11px; font-weight: 500; padding: 6px 14px; border-radius: 100px; background: white; border: 1px solid rgba(15, 23, 42, 0.06); color: var(--dark); box-shadow: var(--shadow-sm); }
+
+  .pf-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: white;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    color: var(--dark);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ── SEÇÕES ── */
   .pf-section { margin-bottom: 4rem; }
-  .pf-label { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 16px; }
+
+  .pf-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .pf-label::after { content: ''; flex: 1; height: 1px; background: rgba(15, 23, 42, 0.06); }
-  .pf-about { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--dark); }
+
+  .pf-about {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--dark);
+  }
   .pf-about strong { font-weight: 600; color: var(--black); }
-  .xp-list { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  /* ── VITRINE LINKEDIN ── */
+  .ln-intro { font-size: 14.5px; font-weight: 300; color: var(--dark); margin-bottom: 1.5rem; }
+  .ln-intro a { color: var(--pink); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,0,130,0.2); }
+  .ln-intro a:hover { border-color: var(--pink); }
+  
+  .ln-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 16px; }
+  
+  .ln-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: var(--fx);
+  }
+
+  .ln-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 0, 130, 0.4);
+    box-shadow: var(--shadow-md);
+  }
+
+  .ln-img-container {
+    width: 100%;
+    height: 140px;
+    background: #f1f5f9;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ln-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--fx);
+  }
+
+  .ln-card:hover .ln-img-container img {
+    transform: scale(1.04);
+  }
+
+  .ln-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .ln-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .ln-desc {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── VITRINE DE CO-CRIAÇÃO IBS (CARROSSEL) ── */
+  .ibs-showcase {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ibs-meta-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .ibs-meta-text strong {
+    color: var(--pink);
+    font-weight: 600;
+  }
+
+  .ibs-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .ibs-carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .ibs-grid {
+    display: flex;
+    gap: 14px;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .ibs-thumb-card {
+    position: relative;
+    flex: 0 0 calc((100% - 28px) / 3);
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #f1f5f9;
+    transition: var(--fx);
+  }
+
+  .ibs-thumb-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--fx);
+  }
+
+  .ibs-thumb-badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background: rgba(15, 23, 42, 0.75);
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+  }
+
+  .ibs-thumb-card:hover {
+    transform: scale(1.02);
+    border-color: var(--pink);
+    box-shadow: var(--shadow-md);
+  }
+
+  .ibs-thumb-card:hover img {
+    filter: brightness(0.9);
+  }
+
+  .ibs-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid var(--border);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    z-index: 10;
+    font-size: 16px;
+    color: var(--black);
+    transition: var(--fx);
+  }
+
+  .ibs-carousel-btn:hover {
+    background: var(--pink);
+    color: white;
+    border-color: var(--pink);
+  }
+
+  .ibs-carousel-btn.prev { left: -18px; }
+  .ibs-carousel-btn.next { right: -18px; }
+  
+  .ibs-carousel-btn:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ── CASES ── */
+  .pf-cases { display: flex; flex-direction: column; gap: 16px; }
+
+  .pf-case {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--fx);
+  }
+
+  .pf-case:hover {
+    transform: translateY(-5px);
+    background: #f1f5f9;
+    border-color: rgba(255, 0, 130, 0.4);
+    box-shadow: var(--shadow-md);
+  }
+
+  .case-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+  .case-title { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .b-brand    { background: #faf5ff; color: #6b21a8; border: 1px solid #f3e8ff; }
+  .b-strategy { background: #f7fee7; color: #3f6212; border: 1px solid #ecfccb; }
+  .b-ops      { background: #fefce8; color: #854d0e; border: 1px solid #fef9c3; }
+  .b-plan     { background: #fff5f5; color: #9b1c1c; border: 1px solid #ffe4e4; }
+
+  .case-desc { font-size: 13.5px; font-weight: 300; color: var(--dark); line-height: 1.7; margin-bottom: 1.1rem; }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+  
+  .dtag {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--offwhite);
+    color: var(--dark);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+  }
+  .dtag.ai { background: #faf5ff; color: #6b21a8; border-color: #e9d5ff; font-weight: 500; }
+
+  .links-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  
+  .pf-link {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,0,130,0.15);
+    background: white;
+    transition: var(--fx);
+  }
+  .pf-link:hover { background: var(--pink); color: white; border-color: var(--pink); }
+
+  /* Mini Grelha de Imagens de Suporte dos Cases */
+  .case-img-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+    margin-top: 0.5rem;
+  }
+
+  .case-img-box {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--offwhite);
+    aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow-sm);
+    cursor: zoom-in;
+    transition: var(--fx);
+  }
+
+  .case-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--fx);
+  }
+
+  .case-img-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--pink);
+    box-shadow: var(--shadow-md);
+  }
+
+  .case-img-box:hover img {
+    transform: scale(1.04);
+  }
+
+  .case-img-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(2px);
+    color: white;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 4px 6px;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    transition: var(--fx);
+  }
+
+  .case-img-box:hover .case-img-label {
+    background: var(--pink);
+  }
+
+  /* ── LIGHTBOX (IMAGEM EXPANDIDA) ── */
+  .lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .lightbox-overlay.active .lightbox-content {
+    transform: scale(1);
+  }
+
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    display: block;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: var(--fx);
+  }
+  .lightbox-close:hover { opacity: 1; color: var(--pink); }
+
+  .lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ACORDEÃO / EFEITO CORTINA PREMIUM ── */
+  .toggle-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--dark);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 0.5rem;
+    border: none;
+    background: none;
+    padding: 4px 0;
+    opacity: 0.6;
+    transition: var(--fx);
+  }
+  .toggle-btn:hover { opacity: 1; color: var(--pink); }
+  .toggle-arrow { display: inline-block; transition: transform 0.25s ease; font-size: 12px; }
+
+  .detail-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  }
+  
+  .detail-inner {
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .d-block { margin-bottom: 1.25rem; }
+  .d-block:last-child { margin-bottom: 0; }
+  .d-text { font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.8; }
+  .d-text strong { font-weight: 500; color: var(--black); }
+  .d-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 0.5rem;
+  }
+
+  .d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0.75rem; }
+  .d-card { background: var(--offwhite); border: 1px solid rgba(15, 23, 42, 0.04); border-radius: 10px; padding: 1rem; }
+  
+  .d-flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 0.75rem; }
+  .d-flow-item { font-size: 11px; font-weight: 500; background: white; border: 1px solid rgba(15, 23, 42, 0.05); border-radius: 6px; padding: 4px 10px; color: var(--dark); }
+
+  .d-pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 6px; margin: 2px; }
+  .d-pill.lime { background: #f7fee7; color: #3f6212; }
+  .d-pill.pink { background: #fff5f5; color: #9b1c1c; }
+
+  /* ── COMPETÊNCIAS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  
+  .skill-card { 
+    border: 1px solid var(--border); 
+    border-radius: 12px; 
+    padding: 1.25rem; 
+    background: white; 
+    box-shadow: var(--shadow-sm); 
+    transition: var(--fx);
+  }
+
+  .skill-card:hover {
+    transform: translateY(-3px);
+    background: #f1f5f9;
+    border-color: rgba(255, 0, 130, 0.3);
+    box-shadow: var(--shadow-md);
+  }
+
+  .skill-lbl {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 0.6rem;
+  }
+  .skill-items { font-size: 12.5px; font-weight: 300; color: var(--dark); line-height: 1.7; }
+
+  /* ── TRAJETÓRIA / XP ── */
+  .xp-list { display: flex; flex-direction: column; gap: 2rem; }
   .xp-item { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; }
   .xp-year { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--dark); opacity: 0.5; padding-top: 3px; }
-  .xp-role { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+  .xp-role { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); line-height: 1.4; margin-bottom: 4px; }
   .xp-co { font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 6px; }
-  .xp-bullets { font-size: 13px; font-weight: 300; color: var(--dark); padding-left: 1.1rem; }
-  .ibs-showcase { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; margin-top: 1.5rem; box-shadow: var(--shadow-sm); }
-  .ibs-meta-text { font-size: 13px; font-weight: 300; color: var(--dark); margin-bottom: 1.25rem; }
-  .ibs-grid { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; }
-  .ibs-thumb-card { flex: 0 0 150px; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-  .ibs-thumb-card img { width: 100%; height: 100%; object-fit: cover; }
-  .pf-case { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
-  .case-title { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; }
-  .badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; }
-  .b-brand { background: #faf5ff; color: #6b21a8; }
-  .case-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-top: 1rem; }
-  .case-img-box { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; }
-  .case-img-box img { width: 100%; height: 100%; object-fit: cover; }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-  .skill-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: white; box-shadow: var(--shadow-sm); }
-  .skill-lbl { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pink); margin-bottom: 0.6rem; }
-  .skill-items { font-size: 12.5px; font-weight: 300; color: var(--dark); }
+  .xp-note { font-size: 13px; font-weight: 300; color: var(--dark); opacity: 0.9; }
+  .xp-bullets { font-size: 13px; font-weight: 300; color: var(--dark); padding-left: 1.1rem; margin-top: 6px; }
+  .xp-bullets li { margin-bottom: 4px; }
+
+  /* ── TESTEMUNHOS ── */
+  .quote { border-left: 3px solid var(--pink); padding-left: 1.25rem; margin-bottom: 1.75rem; }
+  .quote-text { font-size: 13.5px; font-style: italic; font-weight: 300; color: var(--dark); line-height: 1.7; margin-bottom: 6px; }
+  .quote-author { font-family: 'Outfit', sans-serif; font-size: 11.5px; font-weight: 600; color: var(--black); opacity: 0.7; }
+
+  /* ── BOTÕES DE CONTATO ── */
   .contact-row { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { font-size: 13px; font-weight: 600; padding: 12px 22px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.08); background: white; text-decoration: none; color: var(--black); transition: var(--fx); }
+  .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: white;
+    color: var(--black);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: var(--fx);
+  }
+  .btn:hover { background: var(--offwhite); border-color: var(--black); transform: translateY(-2px); }
   .btn.primary { background: var(--pink); color: white; border-color: var(--pink); }
-  .detail-panel { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  @media (max-width: 650px) { .xp-item { grid-template-columns: 1fr; } .pf { padding: 3rem 1.25rem; } }
+  .btn.primary:hover { background: #e0006e; border-color: #e0006e; box-shadow: 0 10px 25px -5px rgba(255, 0, 130, 0.25); }
+
+  /* ── IDIOMAS ── */
+  .lang-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .lang-badge { font-size: 12.5px; padding: 8px 16px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.05); background: white; color: var(--dark); box-shadow: var(--shadow-sm); }
+  .lang-badge span { font-weight: 600; color: var(--black); font-family: 'Outfit', sans-serif; }
+
+  @media (max-width: 650px) {
+    .pf { padding: 3rem 1.25rem; }
+    .pf-name { font-size: 36px; }
+    .xp-item { grid-template-columns: 1fr; gap: 0.25rem; margin-bottom: 0.5rem; }
+    .case-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .case-img-grid { grid-template-columns: 1fr 1fr; }
+    
+    .ibs-carousel-btn { display: none; }
+    .ibs-carousel-track-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .ibs-grid { gap: 10px; }
+    .ibs-thumb-card { flex: 0 0 130px; }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .pf { padding: 0; }
+    .toggle-btn, .pf-link, .btn, .ibs-carousel-btn, .lightbox-overlay { display: none; }
+    .detail-panel { max-height: none !important; opacity: 1 !important; }
+    .pf-case, .ln-card, .skill-card, .ibs-showcase { page-break-inside: avoid; border: 1px solid #ddd !important; box-shadow: none !important; }
+    .ibs-grid { flex-wrap: wrap; }
+    .ibs-thumb-card { flex: 0 0 calc((100% - 24px) / 3); }
+  }
 </style>
 </head>
 <body>
 <div class="pf">
-  <header class="pf-header">
+
+  <div class="pf-header">
     <p class="pf-eyebrow">CV + Portfólio · Estratégia de Conteúdo</p>
     <h1 class="pf-name">Thainá Zocolan</h1>
     <p class="pf-role">Content Strategist</p>
+
     <div class="pf-contact-line">
       <span>Poços de Caldas, MG</span>
+      <span>·</span>
       <a href="tel:+5511983481654">+55 (11) 98348-1654</a>
+      <span>·</span>
       <a href="mailto:thainazocolan@hotmail.com">thainazocolan@hotmail.com</a>
+      <span>·</span>
       <a href="https://www.linkedin.com/in/thainazocolan" target="_blank">LinkedIn</a>
     </div>
-    <p class="pf-tagline">7+ anos estruturando estratégias de conteúdo para marcas: do diagnóstico ao sistema editorial completo.</p>
+
+    <p class="pf-tagline">7+ anos estruturando estratégias de conteúdo para marcas: do diagnóstico ao sistema editorial completo, com gestão de produção, governança de voz e uso de IA para escalar com consistência.</p>
+
     <div class="pf-tags">
-      <span class="pf-tag">Estratégia</span><span class="pf-tag">Branding</span><span class="pf-tag">IA</span><span class="pf-tag">Fashion Business</span><span class="pf-tag">Copywriting</span>
+      <span class="pf-tag">Estratégia e produção de Conteúdo</span>
+      <span class="pf-tag">Branding</span>
+      <span class="pf-tag">Inbound Marketing</span>
+      <span class="pf-tag">Planejamento Editorial</span>
+      <span class="pf-tag">Social Media</span>
+      <span class="pf-tag">Aquisição Orgânica</span>
+      <span class="pf-tag">Inteligência Artificial</span>
+      <span class="pf-tag">Copywriting</span>
+      <span class="pf-tag">Redação</span>
+      <span class="pf-tag">Fashion</span>
+      <span class="pf-tag">Moda</span>
+      <span class="pf-tag">Educação</span>
+      <span class="pf-tag">Produtos Internacionais</span>
     </div>
-  </header>
+  </div>
 
-  <section class="pf-section">
+  <div class="pf-section">
     <p class="pf-label">Sobre</p>
-    <p class="pf-about">Sou profissional de comunicação e conteúdo com foco em <strong>estratégia, planejamento e branding editorial</strong>.</p>
-  </section>
+    <p class="pf-about">
+      Sou profissional de comunicação e conteúdo com foco em <strong>estratégia, planejamento e branding editorial</strong>. Ao longo de 7 anos, construí narrativas de marca, defini tom de voz, estruturei sistemas editoriais integrados e gerenciei a produção de conteúdo com agências, redatores e equipes multidisciplinares.<br><br>
+      Meu trabalho não para no calendário: começa no diagnóstico, passa pela arquitetura de canais, pelos clusters de conteúdo, pela governança editorial e chega até os GPTs que desenvolvo para garantir que qualquer pessoa produza dentro da estratégia, sem perder a voz da marca.<br><br>
+      Tenho <strong>pós-graduação em Fashion Business pela FAAP</strong> e experiência em campanhas de performance, e-mail marketing e projetos de inovação em comunicação, incluindo desenvolvimento de agentes de IA para otimização e padronização de conteúdo.
+    </p>
+  </div>
 
-  <section class="pf-section">
-    <p class="pf-label">Trajetória Profissional</p>
-    <div class="xp-list">
-      <div class="xp-item">
-        <div class="xp-year">2021 — 2026</div>
-        <div>
-          <p class="xp-role">Estratégia de Conteúdo e Social Media</p>
-          <p class="xp-co">IBS Americas</p>
-          <ul class="xp-bullets">
-            <li>Gestão estratégica e de conteúdo de 3 contas institucionais do Instagram.</li>
-            <li>Gerenciamento de marca pessoal e conteúdo para o Diretor da empresa.</li>
-            <li>Criação do manual de voz e identidade verbal.</li>
-          </ul>
-          <div class="ibs-showcase">
-            <p class="ibs-meta-text"><strong>Vitrine de Conteúdo:</strong> planejamento estratégico e roteirização.</p>
-            <div class="ibs-grid">
-              <a href="https://www.instagram.com/p/DQ7osBLD6Ez/" target="_blank" class="ibs-thumb-card"><img src="4.jpeg"></a>
-              <a href="https://www.instagram.com/p/DV9oWUIJSYa/" target="_blank" class="ibs-thumb-card"><img src="5.jpeg"></a>
-              <a href="https://www.instagram.com/p/C6_3q_vun-7/" target="_blank" class="ibs-thumb-card"><img src="6.jpeg"></a>
+  <div class="pf-section">
+    <p class="pf-label">Vitrine de Conteúdo</p>
+    <p class="ln-intro">Escrevo sobre branding, mercado de moda e maturidade analítica. <a href="https://www.linkedin.com/in/thainazocolan" target="_blank">Conecte-se comigo no LinkedIn</a> para acompanhar as publicações:</p>
+    
+    <div class="ln-grid">
+      <div class="ln-card">
+        <div class="ln-img-container">
+          <img src="1.jpg" alt="Análise de Tom de Voz - Nike">
+        </div>
+        <div class="ln-content">
+          <div>
+            <span class="badge b-brand" style="margin-bottom: 8px; display: inline-block;">Branding</span>
+            <h3 class="ln-title">Consistência e tom de voz: o caso Nike</h3>
+            <p class="ln-desc">Uma análise sobre o impacto de desvios na identidade verbal e como a tentativa de soar exclusivo pode afastar a base real de consumidores da marca.</p>
+          </div>
+          <div class="links-row">
+            <a href="https://www.linkedin.com/posts/thainazocolan_nike-branding-share-7452804883642146816-FH0D?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxLXSgB8ok1--GtKdZiAjubf_HybumvGKM" target="_blank" class="pf-link">Acessar post ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln-card">
+        <div class="ln-img-container">
+          <img src="2.jpg" alt="Estratégia de Collab - Adidas">
+        </div>
+        <div class="ln-content">
+          <div>
+            <span class="badge b-plan" style="margin-bottom: 8px; display: inline-block;">Fashion Business</span>
+            <h3 class="ln-title">A Adidas como referência em Collabs</h3>
+            <p class="ln-desc">Estudo sobre a flexibilidade estratégica da marca ao ceder o protagonismo e cruzar territórios, do esporte de alta performance ao luxo romântico.</p>
+          </div>
+          <div class="links-row">
+            <a href="https://www.linkedin.com/posts/thainazocolan_branding-fashionbusiness-adidas-ugcPost-7432257723406323712-IqfC?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxLXSgB8ok1--GtKdZiAjubf_HybumvGKM" target="_blank" class="pf-link">Acessar post ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln-card">
+        <div class="ln-img-container">
+          <img src="3.jpg" alt="Propósito de Marca - André Carvalhal">
+        </div>
+        <div class="ln-content">
+          <div>
+            <span class="badge b-strategy" style="margin-bottom: 8px; display: inline-block;">Estratégia</span>
+            <h3 class="ln-title">Propósito e Autoconhecimento de Marca</h3>
+            <p class="ln-desc">Uma reflexão franca sobre a importância de olhar para dentro e definir os objetivos essenciais de identidade antes de se render a trends passageiras.</p>
+          </div>
+          <div class="links-row">
+            <a href="https://www.linkedin.com/posts/thainazocolan_quanto-tempo-voc%C3%AA-dedica-para-conhecer-profundamente-share-7363940980921618434-NKhQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxLXSgB8ok1--GtKdZiAjubf_HybumvGKM" target="_blank" class="pf-link">Acessar post ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-section">
+    <p class="pf-label">Cases de Trabalho</p>
+    <div class="pf-cases">
+
+      <div class="pf-case">
+        <div class="case-head">
+          <span class="case-title">Manual de Identidade Verbal · empresa de intercâmbio corporativo</span>
+          <span class="badge b-brand">Branding verbal</span>
+        </div>
+        <p class="case-desc">Criação do guia oficial de governança editorial de uma empresa de intercâmbio corporativo: documento que define arquétipo de marca, subarquétipos funcionais, faixas de modulação por canal e critérios de aprovação de conteúdo. Complementado por um GPT personalizado para escrita e revisão com consistência de voz.</p>
+        <div class="tags-row">
+          <span class="dtag">Arquétipo Mentor Global</span>
+          <span class="dtag">Subarquétipos funcionais</span>
+          <span class="dtag">Faixas de modulação por canal</span>
+          <span class="dtag">Situações comunicacionais</span>
+          <span class="dtag">Regras inegociáveis</span>
+          <span class="dtag">Teste de coerência</span>
+          <span class="dtag ai">GPT de escrita e revisão</span>
+        </div>
+        <button class="toggle-btn" onclick="tog(this)"><span class="toggle-arrow">▾</span> ver detalhes do projeto</button>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="d-block">
+              <p class="d-heading">Contexto</p>
+              <p class="d-text">A empresa não tinha um documento formal de governança verbal. A comunicação era produzida por múltiplos fornecedores (agência, redatores freelancers, equipe interna) sem critérios unificados de tom, postura ou modulação por canal.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Abordagem</p>
+              <p class="d-text">Desenvolvi um manual de governança editorial. O documento define a voz institucional como única e estável, e prevê modulações por situação comunicacional. A estrutura inclui arquétipo de marca, subarquétipos funcionais, faixas de intensidade de voz por canal, critérios de aprovação e um teste de coerência para qualquer peça antes de ir ao ar.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Extensão prática com IA</p>
+              <p class="d-text">Desenvolvi um <strong>GPT personalizado</strong> alimentado com o manual completo. Usado por mim e por fornecedores para escrever e revisar textos, garante que qualquer produção, inclusive de redatores externos, mantenha consistência com a identidade verbal definida.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Resultado</p>
+              <p class="d-text">Instrumento de governança adotado como referência por marketing, parceiros e diretoria. Eliminou dependência de alinhamentos informais: qualquer conteúdo pode ser testado contra o documento antes de ir ao ar.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="xp-item">
-        <div class="xp-year">2025</div>
-        <div>
-          <p class="xp-role">Conteudista Freelancer</p>
-          <p class="xp-co">SEBRAE</p>
-          <ul class="xp-bullets"><li>E-book "Networking – Maximizando resultados pós-feira".</li></ul>
-        </div>
-      </div>
-      <div class="xp-item">
-        <div class="xp-year">2019 — 2021</div>
-        <div>
-          <p class="xp-role">Assistente de Comunicação</p>
-          <p class="xp-co">Instituto da Oportunidade Social (IOS)</p>
-          <ul class="xp-bullets"><li>Crescimento orgânico de 100 a 10 mil seguidores.</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="pf-section">
-    <p class="pf-label">Cases de Trabalho</p>
-    <div class="pf-case">
-      <div style="padding: 1.5rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span class="case-title">Manual de Identidade Verbal</span>
-          <span class="badge b-brand">Branding Verbal</span>
+      <div class="pf-case">
+        <div class="case-head">
+          <span class="case-title">Estratégia de Conteúdo · Ecossistema Multicanal Integrado</span>
+          <span class="badge b-strategy">Estratégia</span>
         </div>
-        <p style="font-size: 13.5px; margin-top: 10px; color: var(--dark);">Guia de governança editorial e GPT personalizado para consistência de voz.</p>
-        <button onclick="tog(this)" style="background: none; border: none; color: var(--pink); font-size: 11px; cursor: pointer; margin-top: 10px;">+ ver detalhes</button>
+        <p class="case-desc">Desenvolvimento e modelagem da estratégia de conteúdo unificada para uma marca de intercâmbio corporativo, integrando estrategicamente a atuação de blog, redes sociais e newsletter para guiar a jornada de maturidade do lead B2B.</p>
+        <div class="tags-row">
+          <span class="dtag">Diagnóstico</span>
+          <span class="dtag">Estratégia trimestral</span>
+          <span class="dtag">Clusters de conteúdo</span>
+          <span class="dtag">Arquitetura de canais</span>
+          <span class="dtag">Integração Blog/Social/News</span>
+          <span class="dtag">KPIs por trimestre</span>
+          <span class="dtag">Framework de insights</span>
+          <span class="dtag ai">GPT de conteúdo</span>
+        </div>
+        <button class="toggle-btn" onclick="tog(this)"><span class="toggle-arrow">▾</span> ver detalhes do projeto</button>
         <div class="detail-panel">
-          <div class="case-img-grid">
-            <div class="case-img-box"><img src="15.jpeg"></div>
-            <div class="case-img-box"><img src="16.jpeg"></div>
+          <div class="detail-inner">
+            <div class="d-block">
+              <p class="d-heading">Diagnóstico que originou o documento</p>
+              <p class="d-text">O diagnóstico revelou uma lacuna central: <strong>alto alcance não gerava leads proporcionais</strong>, e poucos leads avançavam para a etapa de contratação. Com ciclo de decisão longo, o conteúdo precisava gerar maturidade, não apenas visibilidade. A missão tornou-se: transformar atenção em avanço no funil através de uma engrenagem multicanal.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Estratégia trimestral</p>
+              <p class="d-text">Cada trimestre recebeu uma missão editorial própria, definida com base no momento do público na jornada de decisão. A estrutura considerou períodos com produto ativo, períodos de aquecimento e períodos de colheita de prova social, com KPIs distintos para cada fase.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Clusters de conteúdo</p>
+              <p class="d-text">A estratégia foi organizada em clusters temáticos que cobrem toda a jornada do público, desde a descoberta e educação até a decisão e fidelização, de modo que o conteúdo funcione de forma integrada e não apenas como postagens isoladas.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Integração Editorial de Canais (Blog, Redes e Newsletter)</p>
+              <p class="d-text">Em vez de atuar com canais isolados ou réplicas automáticas de conteúdo, os canais operam de forma orquestrada. O <strong>Blog</strong> atua como a base profunda de conhecimento e SEO; as <strong>Redes Sociais</strong> funcionam como pontos capilares de atração, distribuição rápida e escuta ativa da audiência; e a <strong>Newsletter</strong> amarra o ecossistema como um produto editorial proprietário, responsável por construir relacionamento de longo prazo, contextualizar os dados coletados e guiar o lead diretamente ao momento de decisão.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">GPT de conteúdo</p>
+              <p class="d-text">Para garantir que a estratégia funcionasse na operação diária, desenvolvi um <strong>GPT personalizado</strong> alimentado com a estratégia completa, o manual de identidade verbal e documentos sobre os produtos da empresa. O GPT permite que qualquer pessoa da equipe, incluindo fornecedores externos, produza conteúdo alinhado sem depender de briefings extensos.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Framework de dados</p>
+              <p class="d-text">Cada sinal de performance leva a um diagnóstico e uma ação de conteúdo. Exemplo: abertura alta + clique baixo = tema atraiu, conteúdo não acionou → rever CTA e hierarquia. Descadastro alto = desalinhamento de expectativa → rever promessa, frequência ou segmentação.</p>
+            </div>
+
+            <div class="d-block">
+              <div class="case-img-grid">
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="15.jpeg" alt="Jornada">
+                  <span class="case-img-label">jornada</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="16.jpeg" alt="Arquitetura de Canais">
+                  <span class="case-img-label">canais</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="17.jpeg" alt="Distribuição Trimestral">
+                  <span class="case-img-label">distribuição trimestral</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="18.jpeg" alt="Diagnóstico / Ação">
+                  <span class="case-img-label">diagnóstico/ação</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="pf-section">
+      <div class="pf-case">
+        <div class="case-head">
+          <span class="case-title">Sistema Editorial Mensal · empresa de intercâmbio corporativo</span>
+          <span class="badge b-strategy">Estratégia</span>
+        </div>
+        <p class="case-desc">Primeiro ciclo de implementação da estratégia de conteúdo: operacionalização completa de um mês editorial a partir da estratégia anual, com calendários diferenciados por plataforma, briefings para agência e execução dos três pilares (blog, newsletter e social media) em integração.</p>
+        <div class="tags-row">
+          <span class="dtag">Estratégia mensal</span>
+          <span class="dtag">Cal. Instagram (semana a semana)</span>
+          <span class="dtag">Cal. LinkedIn (lógica própria)</span>
+          <span class="dtag">Cal. Facebook (curadoria seletiva)</span>
+          <span class="dtag">2 briefings de blog</span>
+          <span class="dtag">2 briefings de newsletter</span>
+        </div>
+        <button class="toggle-btn" onclick="tog(this)"><span class="toggle-arrow">▾</span> ver detalhes do projeto</button>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="d-block">
+              <p class="d-heading">Contexto</p>
+              <p class="d-text">A estratégia anual estava criada. O desafio foi operacionalizá-la no primeiro ciclo mensal, maximizando a eficiência e garantindo que blog, newsletter e social media funcionassem de forma integrada, com a mesma lógica editorial e sem depender de realinhamentos constantes com a agência e os redatores.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Como foi estruturado</p>
+              <p class="d-text">O mês foi organizado em torno do momento do público na jornada, com públicos em estágios distintos de maturidade. Cada canal recebeu um calendário com lógica própria (não apenas replicação de conteúdo), e os briefings de blog e newsletter foram desenvolvidos a partir dos mesmos pilares editoriais do mês para direcionar a execução com segurança e consistência.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Volume de entregas</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.4rem">
+                <span class="d-pill lime">Instagram: 13 posts + 22 dias Stories</span>
+                <span class="d-pill lime">LinkedIn: 10 posts estruturados</span>
+                <span class="d-pill lime">Facebook: 10 posts curados</span>
+                <span class="d-pill pink">2 briefings de blog completos</span>
+                <span class="d-pill pink">2 briefings de newsletter</span>
+              </div>
+            </div>
+
+            <div class="d-block">
+              <div class="case-img-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="19.jpeg" alt="Instagram">
+                  <span class="case-img-label">instagram</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="20.jpeg" alt="LinkedIn">
+                  <span class="case-img-label">linkedin</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="21.jpeg" alt="Facebook">
+                  <span class="case-img-label">facebook</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-case">
+        <div class="case-head">
+          <span class="case-title">Modelagem de Fluxo Operacional no Asana</span>
+          <span class="badge b-ops">Operações</span>
+        </div>
+        <p class="case-desc">Desenho, parametrização e implementação da arquitetura de gerenciamento de projetos para a produção simultânea de conteúdo internacional (três idiomas), unificando a esteira de equipes internas e prestadores externos.</p>
+        <div class="tags-row">
+          <span class="dtag">Arquitetura de Fluxo</span>
+          <span class="dtag">Esteira PT/EN/ES</span>
+          <span class="dtag">Campos personalizados</span>
+          <span class="dtag">Fluxo de aprovação</span>
+          <span class="dtag">Gestão de fornecedores</span>
+        </div>
+        <button class="toggle-btn" onclick="tog(this)"><span class="toggle-arrow">▾</span> ver detalhes do projeto</button>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="d-block">
+              <p class="d-heading">Contexto</p>
+              <p class="d-text">A empresa produz conteúdo simultâneo em três idiomas (PT, EN, ES) para diferentes mercados, com equipes de design, videomaker, redação e programação envolvidas. Sem uma parametrização clara no sistema de tarefas, o risco de retrabalho, quebra de tom de voz e atraso nas entregas globais era iminente.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Abordagem e Parametrização</p>
+              <p class="d-text">Idealizei e montei o sistema operacional estruturado com subtarefas padronizadas por formato e idioma. Cada tarefa possui campos personalizados indexados: categoria (campanha, blogpost, institucional), objective (conversão, educação, relacionamento), plataforma de destino e responsável de entrega. O fluxo funciona sob um modelo em cadeia linear: texto PT → texto EN → texto ES → peças visuais PT → peças visuais EN → peças visuais ES → validação → agendamento.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Resultado</p>
+              <p class="d-text">Visibilidade total do pipeline de conteúdo internacional. Qualquer membro da equipe ou fornecedor externo acessa o projeto e identifica exatamente em qual etapa de validação ou tradução a peça se encontra, eliminando ruídos de comunicação interna.</p>
+            </div>
+
+            <div class="d-block">
+              <div class="case-img-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="22.jpeg" alt="Etapas Projeto">
+                  <span class="case-img-label">etapas projeto</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="23.jpeg" alt="Detalhes Tarefas">
+                  <span class="case-img-label">detalhes tarefas</span>
+                </div>
+                <div class="case-img-box" onclick="openLightbox(this)">
+                  <img src="24.jpeg" alt="Subtarefas">
+                  <span class="case-img-label">subtarefas</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-case">
+        <div class="case-head">
+          <span class="case-title">Crescimento orgânico do zero: ONG de educação profissional</span>
+          <span class="badge b-plan">Planejamento</span>
+        </div>
+        <p class="case-desc">Criação da primeira estratégia de conteúdo para redes sociais de uma ONG de educação profissional, transforming canais estáticos em pontos de contato estratégicos e levando o Instagram de 100 para 10 mil seguidores com conteúdo 100% orgânico.</p>
+        <div class="tags-row">
+          <span class="dtag">Estratégia do zero</span>
+          <span class="dtag">Pilares editoriais</span>
+          <span class="dtag">Calendário editorial</span>
+          <span class="dtag">Roteiros de vídeo e podcast</span>
+          <span class="dtag">Gestão de fornecedores</span>
+        </div>
+        <button class="toggle-btn" onclick="tog(this)"><span class="toggle-arrow">▾</span> ver detalhes do projeto</button>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="d-block">
+              <p class="d-heading">Contexto</p>
+              <p class="d-text">A instituição não tinha estratégia de conteúdo. Os canais existiam mas funcionavam como repositórios estáticos, sem narrativa de marca, consistência editorial ou propósito comunicacional claro.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Abordagem</p>
+              <p class="d-text">Mapeei os públicos da instituição, defini pilares editoriais com base nos objetivos institucionais e estruturei um calendário com frequência consistente de publicação. Desenvolvi roteiros para vídeos e podcasts e coordenei a produção com equipe de design e audiovisual.</p>
+            </div>
+            <div class="d-block">
+              <p class="d-heading">Resultado</p>
+              <p class="d-text">Crescimento de <strong>100 para 10 mil seguidores</strong> no Instagram por meio exclusivamente de conteúdo orgânico, sem impulsionamento pago. O canal passou a funcionar como ponto de contato estratégico para a marca, gerando engajamento e visibilidade para a missão institucional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pf-section">
+    <p class="pf-label">Trajetória Profissional</p>
+    <div class="xp-list">
+
+      <div class="xp-item">
+        <span class="xp-year">2021 – hoje</span>
+        <div>
+          <p class="xp-role">Estratégia de Conteúdo e Social Media</p>
+          <p class="xp-co">IBS Americas</p>
+          <ul class="xp-bullets">
+            <li>Estratégia, planejamento e execução de conteúdo em canais digitais</li>
+            <li>Planejamento editorial e definição de pautas para redes sociais, blog e campanhas</li>
+            <li>Copywriting para campanhas de performance e aquisição</li>
+            <li>Criação do manual de voz e identidade verbal da marca</li>
+            <li>Gestão de comunicação interna e intranet</li>
+            <li>Participação no desenvolvimento de agentes de IA para conteúdo e padronização de linguagem</li>
+            <li>Briefings para agência e gestão de fornecedores externos</li>
+          </ul>
+
+          <div class="ibs-showcase">
+            <h4 class="ln-title" style="font-size: 13.5px; margin-bottom: 4px;">Vitrine de Conteúdo · IBS Americas</h4>
+            <p class="ibs-meta-text">Atuação focada no <strong>planejamento estratégico, redação de posts, roteirização e direcionamento de criativos (briefing)</strong> executados pelo time de design e audiovisual.</p>
+            
+            <div class="ibs-carousel-wrapper">
+              <button class="ibs-carousel-btn prev" id="btnPrev" onclick="moveCarousel(-1)" disabled>❮</button>
+              
+              <div class="ibs-carousel-track-container">
+                <div class="ibs-grid" id="ibsGrid">
+                  <a href="https://www.instagram.com/p/DQ7osBLD6Ez/?igsh=MW44eHI2bDJ0Z29hcw==" target="_blank" class="ibs-thumb-card" title="Ver post original no Instagram">
+                    <img src="4.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Post</span>
+                  </a>
+                  <a href="https://www.instagram.com/p/DV9oWUIjSYa/?igsh=MW16bjI3ODJnY2Y0cA==" target="_blank" class="ibs-thumb-card" title="Ver post original no Instagram">
+                    <img src="5.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Post</span>
+                  </a>
+                  <a href="https://www.instagram.com/p/DUEN4K7jzZZ/?igsh=eDExbXBpbzkzYXpx" target="_blank" class="ibs-thumb-card" title="Ver post original no Instagram">
+                    <img src="6.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Post</span>
+                  </a>
+                  <a href="https://www.instagram.com/p/DRPiAfVjSn-/?igsh=OHFvNmh4cjA2aTBp" target="_blank" class="ibs-thumb-card" title="Ver post original no Instagram">
+                    <img src="7.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Post</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/DTJBHFdD15_/?igsh=dmV5azJuazdqYnVq" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="8.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/DRUlTKnDKdW/?igsh=MXFneWljMjByY2E0NQ==" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="9.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/DEUqlDuJCOw/?igsh=MjUzaXo5MDNlNmw0" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="10.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/C_BAJkRsFew/?igsh=N2hvczc1OHJ0eHh6" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="11.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/C-c7JqFPt-l/?igsh=YTVlcHR5em8xeTdr" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="12.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                  <a href="https://www.instagram.com/reel/CuUzHk9ttwo/?igsh=bHJrOHB3ZmcweDky" target="_blank" class="ibs-thumb-card" title="Ver Reels original">
+                    <img src="13.jpeg" alt="Conteúdo IBS Americas">
+                    <span class="ibs-thumb-badge">Reels</span>
+                  </a>
+                </div>
+              </div>
+
+              <button class="ibs-carousel-btn next" id="btnNext" onclick="moveCarousel(1)">❯</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <span class="xp-year">2025</span>
+        <div>
+          <p class="xp-role">Conteudista Freelancer</p>
+          <p class="xp-co">SEBRAE</p>
+          <ul class="xp-bullets">
+            <li>E-book "Networking – Maximizando resultados pós-feira"</li>
+            <li>Conteúdo educativo para eventos empresariais</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <span class="xp-year">2019 – 2021</span>
+        <div>
+          <p class="xp-role">Assistente de Comunicação e Marketing</p>
+          <p class="xp-co">Instituto da Oportunidade Social (IOS)</p>
+          <ul class="xp-bullets">
+            <li>Primeira estratégia de conteúdo da instituição</li>
+            <li>Crescimento orgânico de 100 a 10 mil seguidores no Instagram</li>
+            <li>Gestão de redes sociais e produção de conteúdo institucional</li>
+            <li>Participação na produção de relatórios de sustentabilidade (GRI) e podcast institucional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <span class="xp-year">2018 – 2019</span>
+        <div>
+          <p class="xp-role">Estagiária de Comunicação</p>
+          <p class="xp-co">Instituto da Oportunidade Social (IOS)</p>
+          <ul class="xp-bullets">
+            <li>Conteúdo para Instagram, textos institucionais e apoio em branding digital</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pf-section">
     <p class="pf-label">Competências</p>
     <div class="skills-grid">
-      <div class="skill-card"><p class="skill-lbl">Estratégia</p><p class="skill-items">Sistema editorial · Funil · SEO · Copywriting</p></div>
-      <div class="skill-card"><p class="skill-lbl">Tecnologia</p><p class="skill-items">ChatGPT · Claude · Gemini · RD Station</p></div>
-      <div class="skill-card"><p class="skill-lbl">Gestão</p><p class="skill-items">Asana · Trello · Analytics · mLabs</p></div>
+      <div class="skill-card">
+        <p class="skill-lbl">Estratégia</p>
+        <p class="skill-items">Sistema editorial · Planejamento por funil · Tom de voz · Identidade verbal · Clusters de conteúdo · Inbound · SEO · Copywriting · Storytelling</p>
+      </div>
+      <div class="skill-card">
+        <p class="skill-lbl">Produção</p>
+        <p class="skill-items">Briefing editorial · Roteirização · Curadoria estética · Calendários multicanal · E-mail marketing · Comunicação interna</p>
+      </div>
+      <div class="skill-card">
+        <p class="skill-lbl">Gestão & dados</p>
+        <p class="skill-items">Asana · Trello · Google Analytics · Looker Studio · Semrush · RD Station · mLabs · Meta Business Suite · Salesforce · WordPress</p>
+      </div>
+      <div class="skill-card">
+        <p class="skill-lbl">IA & automação</p>
+        <p class="skill-items">ChatGPT · Claude · Gemini · ManyChat · GPTs personalizados · Agentes de IA · Otimização de fluxos de produção</p>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pf-section">
+  <div class="pf-section">
     <p class="pf-label">Formação</p>
     <div class="xp-list">
-      <div class="xp-item"><div class="xp-year">FAAP</div><div><p class="xp-role">Pós-graduação em Fashion Business</p></div></div>
-      <div class="xp-item"><div class="xp-year">Anhembi</div><div><p class="xp-role">Graduação em Comunicação Social - Jornalismo</p></div></div>
+      <div class="xp-item">
+        <span class="xp-year">FAAP<br>dez/2023 – mai/2025</span>
+        <div><p class="xp-role">Pós-graduação em Fashion Business</p></div>
+      </div>
+      <div class="xp-item">
+        <span class="xp-year">Anhembi Morumbi<br>fev/2022 – fev/2024</span>
+        <div><p class="xp-role">Pós-graduação em Docência para o Ensino Superior</p></div>
+      </div>
+      <div class="xp-item">
+        <span class="xp-year">Anhembi Morumbi<br>jan/2016 – dez/2019</span>
+        <div><p class="xp-role">Graduação em Comunicação Social, Jornalismo</p></div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pf-section">
+  <div class="pf-section">
+    <p class="pf-label">Idiomas</p>
+    <div class="lang-row">
+      <div class="lang-badge"><span>Português</span> · Nativo</div>
+      <div class="lang-badge"><span>Inglês</span> · B2</div>
+    </div>
+  </div>
+
+  <div class="pf-section">
+    <p class="pf-label">O que dizem</p>
+    <div class="quote">
+      <p class="quote-text">"Ela orquestra com muita fluidez o conteúdo de múltiplos canais e gerencia de forma exemplar o relacionamento com agências e equipes multidisciplinares."</p>
+      <p class="quote-author">Samanta Vaglieri, Coordenadora de Marketing Digital · IBS Americas</p>
+    </div>
+    <div class="quote">
+      <p class="quote-text">"Sua capacidade de organizar fluxos de trabalho faz dela uma parceira fundamental para qualquer time de marketing."</p>
+      <p class="quote-author">Caio Henrique, Videomaker Sênior</p>
+    </div>
+  </div>
+
+  <div class="pf-section" style="margin-bottom:0">
     <p class="pf-label">Contato</p>
     <div class="contact-row">
-      <a href="mailto:thainazocolan@hotmail.com" class="btn primary">E-mail</a>
-      <a href="https://www.linkedin.com/in/thainazocolan" class="btn" target="_blank">LinkedIn</a>
-      <a href="https://wa.me/5511983481654" class="btn" target="_blank">WhatsApp</a>
+      <a class="btn primary" href="mailto:thainazocolan@hotmail.com">✉ thainazocolan@hotmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/thainazocolan" target="_blank">in LinkedIn</a>
+      <a class="btn" href="https://wa.me/5511983481654?text=Ol%C3%A1%2C%20Thain%C3%A1!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade." target="_blank">💬 WhatsApp</a>
     </div>
-  </section>
+  </div>
+
 </div>
+
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <img id="lightboxImg" src="" alt="Imagem Expandida">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
 <script>
-  function tog(btn) {
-    const panel = btn.nextElementSibling;
-    panel.style.maxHeight = panel.style.maxHeight === "500px" ? "0px" : "500px";
+// Lógica dos Acordeões dos Cases
+function tog(btn) {
+  const panel = btn.nextElementSibling;
+  const arrow = btn.querySelector('.toggle-arrow');
+  const label = btn.childNodes[1];
+  
+  if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+    panel.style.maxHeight = "0px";
+    panel.style.opacity = "0";
+    arrow.style.transform = '';
+    label.textContent = ' ver detalhes do projeto';
+  } else {
+    panel.style.maxHeight = panel.scrollHeight + "px";
+    panel.style.opacity = "1";
+    arrow.style.transform = 'rotate(180deg)';
+    label.textContent = ' fechar detalhes';
+    
+    setTimeout(() => {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }, 50);
   }
+}
+
+// Lógica de Carrossel de 3 em 3 para a vitrine IBS (10 itens)
+let currentGroup = 0;
+const totalItems = document.querySelectorAll('.ibs-thumb-card').length;
+const itemsPerSlide = 3;
+const totalGroups = Math.ceil(totalItems / itemsPerSlide);
+
+function moveCarousel(direction) {
+  const grid = document.getElementById('ibsGrid');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  
+  currentGroup += direction;
+  if (currentGroup < 0) currentGroup = 0;
+  if (currentGroup >= totalGroups - 1) currentGroup = totalGroups - 1;
+
+  grid.style.transform = `translateX(-${currentGroup * 102.3}%)`;
+
+  btnPrev.disabled = currentGroup === 0;
+  btnNext.disabled = currentGroup >= totalGroups - 1;
+}
+
+// Lógica para Abrir Imagem (Lightbox)
+function openLightbox(element) {
+  const imgUrl = element.querySelector('img').getAttribute('src');
+  const captionText = element.querySelector('.case-img-label').textContent;
+  
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  
+  lightboxImg.setAttribute('src', imgUrl);
+  lightboxCaption.textContent = captionText;
+  lightbox.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
